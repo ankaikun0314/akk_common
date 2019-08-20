@@ -1,16 +1,36 @@
 package com.akk.common.utils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StreamUtil {
+	public static List<String> readFile(InputStream in) {
 
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+		List<String> list = new ArrayList<>();
+		String lineText = null;
+		try {
+			while ((lineText = reader.readLine()) != null) {
+
+				list.add(lineText);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return list;
+
+	}
 	/*
-	 * ·½·¨1£ºÅúÁ¿¹Ø±ÕÁ÷£¬²ÎÊýÄÜ´«ÎÞÏÞ¸ö¡£(3·Ö) ÀýÈç´«ÈëFileInputStream¶ÔÏó¡¢JDBCÖÐConnection¶ÔÏó¶¼¿ÉÒÔ¹Ø±Õ¡£
+	 * ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½(3ï¿½ï¿½) ï¿½ï¿½ï¿½ç´«ï¿½ï¿½FileInputStreamï¿½ï¿½ï¿½ï¿½JDBCï¿½ï¿½Connectionï¿½ï¿½ï¿½ó¶¼¿ï¿½ï¿½Ô¹Ø±Õ¡ï¿½
 	 */
 	public static void closeAll(AutoCloseable... autoCloseable) {
 		for (AutoCloseable able : autoCloseable) {
@@ -23,11 +43,11 @@ public class StreamUtil {
 	}
 
 	/*
-	 * ·½·¨2£º´«ÈëÒ»¸öÎÄ±¾ÎÄ¼þ¶ÔÏó£¬Ä¬ÈÏÎªUTF-8±àÂë£¬·µ»Ø¸ÃÎÄ¼þÄÚÈÝ(3·Ö)£¬ÒªÇó·½·¨ÄÚ²¿µ÷ÓÃÉÏÃæµÚ1¸ö·½·¨¹Ø±ÕÁ÷(3·Ö)
+	 * ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ÎªUTF-8ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½(3ï¿½ï¿½)ï¿½ï¿½Òªï¿½ó·½·ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½(3ï¿½ï¿½)
 	 */
 	public static String readTextFile(InputStream src) throws IOException {
 		
-		//¶¨ÒåÊä³öÁ÷
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 ByteArrayOutputStream out = new ByteArrayOutputStream();
 
 		 String str=null ;
@@ -37,7 +57,7 @@ public class StreamUtil {
 		while((x= src.read(b))!=-1) {
 			out.write(b);
 		}
-		//¹Ø±ÕÁ÷
+		//ï¿½Ø±ï¿½ï¿½ï¿½
 		closeAll(out,src);
 		
 		return out.toString("utf-8");
@@ -48,7 +68,7 @@ public class StreamUtil {
 	}
 
 	/*
-	 * ·½·¨3£º´«ÈëÎÄ±¾ÎÄ¼þ¶ÔÏó£¬·µ»Ø¸ÃÎÄ¼þÄÚÈÝ(3·Ö)£¬²¢ÇÒÒªÇóÄÚ²¿µ÷ÓÃÉÏÃæµÚ2¸ö·½·¨(5·Ö)¡£* ÕâÊÇµäÐÍµÄ·½·¨ÖØÔØ£¬¼Ç×¡ÁËÂð£¿ÉÙÄê¡­
+	 * ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½Ø¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½(3ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(5ï¿½ï¿½)ï¿½ï¿½* ï¿½ï¿½ï¿½Çµï¿½ï¿½ÍµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½×¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡­
 	 */
 	public static String readTextFile(File txtFile) throws FileNotFoundException, IOException {
 	   return readTextFile(new FileInputStream(txtFile));

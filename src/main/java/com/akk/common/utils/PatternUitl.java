@@ -1,70 +1,80 @@
+/**   
+ * Copyright Â© 2019 å…¬å¸å. All rights reserved.
+ * 
+ * @Title: PatternUtil.java 
+ * @Prject: zhangsan-common
+ * @Package: com.zhangsan.common.utils 
+ * @Description: TODO
+ * @author: charles   
+ * @date: 2019å¹´8æœˆ10æ—¥ ä¸Šåˆ10:20:34 
+ * @version: V1.0   
+ */
 package com.akk.common.utils;
 
-import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.Test;
+
+/** 
+ * @ClassName: PatternUtil 
+ * @Description: TODO
+ * @author: charles
+ * @date: 2019å¹´8æœˆ10æ—¥ ä¸Šåˆ10:20:34  
+ */
 public class PatternUitl {
 	
-	  /**
-	   * ¸ù¾İ¹æÔò»ñÈ¡URLÖĞÊı×Ö,²¢×ªÎªÈÕÆÚ
-	   * @Title: getRqFromUrl 
-	   * @Description: TODO
-	   * @param url
-	   * @return
-	   * @return: Date
-	   */
-	public static Date  getRqFromUrl(String url) {
-		//¶¨Òå¹æÔò
-		String pattern ="-(\\d+)-";
-		//±àÒë¹æÔò
-		Pattern c = Pattern.compile(pattern);
-		//Æ¥Åä¹æÔò
-		 Matcher m = c.matcher(url);
-		 //²éÕÒÆ¥Åä¹æÔòµÄÄÚÈİ
-		 if(m.find()) {
-		   return StringUtil.strToDate(m.group(1));
-		 }
-		return null;
+	/**
+	 * 
+	 * @Title: getLastNumFormUrl 
+	 * @Description:ä»urlä¸­è·å–æœ€åçš„æ•°å­—
+	 * @return
+	 * @return: Integer
+	 */
+
+	public static Integer getLastNumFormUrl(String url) {
+	    String[] split = url.split("\\D+");
+	    
+	     String num = split[split.length-1];
+		
+	     return Integer.parseInt(num);
+		
+	}
+	
+	/**
+	 * 
+	 * @Title: getFirstNumFormUrl 
+	 * @Description: è·å–ç¬¬ä¸€ä¸ªæ•°å­—
+	 * @param url
+	 * @return
+	 * @return: Integer
+	 */
+	public static String getFirstNumFormUrl(String url) {
+	    String[] split = url.split("\\D+");
+	    
+		
+	     return split[1];
 		
 	}
 	
 	
-	/**
-	 * ´Óurl »ñÈ¡ ×îºóµÄÊı×Ö
-	 * @Title: getNumberFromUrl 
-	 * @Description: TODO
-	 * @param url
-	 * @return: void
-	 */
-	public static Integer getNumberFromUrl(String url) {
-		//
-		String pattern ="[0-9]+(?=[^0-9]*$)";
-		 Pattern c = Pattern.compile(pattern);
-		 Matcher matcher = c.matcher(url);
-		 if(matcher.find()) {
-		  String str =matcher.group();
-		  return StringUtil.strToInteger(str);
-		 }
-		return null;
+	
+	
+	
+	@Test
+	public void   getLastNumFormUrl2() {
+		String url ="http://news.cnstock.com/news,yw-201905-1413224.htm";
+		//å®šä¹‰è§„åˆ™
+	//	String regex ="[0-9]+(?=[^0-9]*$)";
+		String regex ="(\\d+)";
+	    //ç¼–è¯‘è§„åˆ™
+		Pattern c = Pattern.compile(regex);
+		//åŒ¹é…
+		Matcher m = c.matcher(url);
+		if(m.find()) {
+			System.out.println(m.group());
+		}
+		
+	}
 
-	}
-	
-	
-	
-	
-	/**
-	 * ÅĞ¶ÏÊÇ·ñÎªÊı×ÖÀàĞÍ
-	 * @Title: strToNum 
-	 * @Description: TODO
-	 * @param str
-	 * @return
-	 * @return: boolean
-	 */
-	public boolean strToNum(String str) {
-		String pattern ="^[0-9]*$";
-		Pattern c = Pattern.compile(pattern);
-		Matcher matcher = c.matcher(str);
-		return matcher.find();
-	}
-	}
+}

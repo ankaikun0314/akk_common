@@ -5,45 +5,58 @@ import java.util.Date;
 
 public class DateUtil {
 	/*
-	 * ·½·¨1£º(5·Ö) ¸øÒ»¸öÊ±¼ä¶ÔÏó£¬·µ»Ø¸ÃÊ±¼äËùÔÚÔÂµÄ1ÈÕ0Ê±0·Ö0Ãë¡£ÀýÈçÒ»¸öDate¶ÔÏóµÄÖµÊÇ2019-05-18 11:37:22
-	 * Ôò·µ»ØµÄ½á¹ûÎª2019-05-01 00:00:00
+	 * ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½(5ï¿½ï¿½) ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½Ø¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½1ï¿½ï¿½0Ê±0ï¿½ï¿½0ï¿½ë¡£ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Dateï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½2019-05-18 11:37:22
+	 * ï¿½ò·µ»ØµÄ½ï¿½ï¿½Îª2019-05-01 00:00:00
 	 */
 	public static Date getDateByInitMonth(Date src) {
-		// »ñÈ¡ÈÕÀúÀà
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Calendar c = Calendar.getInstance();
-		// ¸ù¾Ý´«ÈëµÄ²ÎÊý ³õÊ¼»¯ÈÕÀúÀà
+		// ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		c.setTime(src);
-		// ÉèÖÃ´«ÈëÈÕÆÚµÄÔÂ³õ
+		// ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Â³ï¿½
 		c.set(Calendar.DAY_OF_MONTH, 1);
-		// ÉèÖÃÐ¡Ê±Îª0Ð¡Ê±
+		// ï¿½ï¿½ï¿½ï¿½Ð¡Ê±Îª0Ð¡Ê±
 		c.set(Calendar.HOUR_OF_DAY, 0);
-		// ÉèÖÃ·ÖÖÓÎª0·ÖÖÓ
+		// ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Îª0ï¿½ï¿½ï¿½ï¿½
 		c.set(Calendar.MINUTE, 0);
-		// ÉèÖÃÃîÎª0Ãë
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½
 		c.set(Calendar.SECOND, 0);
 
 		return c.getTime();
 	}
 
 	/*
-	 * ·½·¨2£º(5·Ö) ¸øÒ»¸öÊ±¼ä¶ÔÏó£¬·µ»Ø¸ÃÊ±¼äËùÔÚÔÂµÄ×îºóÈÕ23Ê±59·Ö59Ãë£¬ÐèÒª¿¼ÂÇÔÂ´óÔÂÐ¡ºÍ¶þÔÂÌØÊâÇé¿ö¡£
-	 * ÀýÈçÒ»¸öDate¶ÔÏóµÄÖµÊÇ2019-05-18 11:37:22£¬Ôò·µ»ØµÄÊ±¼äÎª2019-05-31 23:59:59
-	 * ÀýÈçÒ»¸öDate¶ÔÏóµÄÖµÊÇ2019-02-05 15:42:18£¬Ôò·µ»ØµÄÊ±¼äÎª2019-02-28 23:59:59
+	 * ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½(5ï¿½ï¿½) ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½Ø¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½23Ê±59ï¿½ï¿½59ï¿½ë£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½Ð¡ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Dateï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½2019-05-18 11:37:22ï¿½ï¿½ï¿½ò·µ»Øµï¿½Ê±ï¿½ï¿½Îª2019-05-31 23:59:59
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Dateï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½2019-02-05 15:42:18ï¿½ï¿½ï¿½ò·µ»Øµï¿½Ê±ï¿½ï¿½Îª2019-02-28 23:59:59
 	 */
 	public static Date getDateByFullMonth(Date src) {
-		// »ñÈ¡ÈÕÀúÀà
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Calendar c = Calendar.getInstance();
-		// ¸ù¾Ý´«ÈëµÄ²ÎÊý ³õÊ¼»¯ÈÕÀúÀà
+		// ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		c.setTime(src);
-// ÈÃ´«ÈëµÄÔÂ·Ý¼Ó1
+// ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Â·Ý¼ï¿½1
 		c.add(Calendar.MONTH, 1);
-		//ÈÃÔÂ·ÝÔÚÉèÖÃ³ÉÔÂ³õ 2019-08-01 00:00:00
+		//ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½Â³ï¿½ 2019-08-01 00:00:00
 		Date date = getDateByInitMonth(c.getTime());
 		c.setTime(date);
-		//ÈÃÃë-1
+		//ï¿½ï¿½ï¿½ï¿½-1
 		c.add(Calendar.SECOND, -1);
 		
 		return c.getTime();
-		// TODO ÊµÏÖ´úÂë
+		// TODO Êµï¿½Ö´ï¿½ï¿½ï¿½
 	}
+	
+	public static int getAge (Date src) {
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(src);
+		
+		
+		
+		
+		return 1;
+	
+		}
+	
 }
