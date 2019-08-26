@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.akk.common.utils.StringUtilTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.akk.common.utils.StringUtilTest" time="0.004" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="F:\CMS\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4857015686356936981.tmp"/>
+    <property name="classworlds.conf" value="F:\CMS\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6585038347578578657.tmp"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_151\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_151/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\mysql\bin;D:\tools\apache-maven-3.6.0-bin\bin;F:\CMS\Git\cmd;C:\Program Files\Java\jdk1.8.0_151\bin;C:\Program Files\Java\jdk1.8.0_151\jre\bin;;D:\小实训1学习文件\eclipse-jee-2019-06-R-win32-x86_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,8 +61,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.akk.common.utils.StringUtilTest" name="testGenerateChineseName" time="0"/>
-  <testcase classname="com.akk.common.utils.StringUtilTest" name="testRandomChineseString" time="0"/>
-  <testcase classname="com.akk.common.utils.StringUtilTest" name="testHasLength" time="0.003"/>
+  <testcase classname="com.akk.common.utils.StringUtilTest" name="testGenerateChineseName" time="0.002"/>
+  <testcase classname="com.akk.common.utils.StringUtilTest" name="testRandomChineseString" time="0.002"/>
+  <testcase classname="com.akk.common.utils.StringUtilTest" name="testHasLength" time="0"/>
   <testcase classname="com.akk.common.utils.StringUtilTest" name="testHasText" time="0"/>
 </testsuite>

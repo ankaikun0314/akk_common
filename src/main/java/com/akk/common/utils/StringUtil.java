@@ -11,7 +11,10 @@
  */
 package com.akk.common.utils;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -204,6 +207,22 @@ public class StringUtil {
 		 */
 		
 		return str1 +str2;
+	}
+	
+	public static boolean isHttpUrl(String src) {
+		    
+		              try
+					{
+						URL url=new URL(src);
+						InputStream stream=url.openStream();
+						
+						return true;
+					} catch (Exception e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		      return false;
 	}
 
 }
